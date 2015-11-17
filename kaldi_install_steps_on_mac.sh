@@ -37,6 +37,7 @@ cd ~
 cd kaldi/src
 
 #The "configure" script, located in src/, should be run by typing ./configure. This script takes various options. For instance, you can run
+#154 : ./configure --shared --mkl-root=/opt/intel/mkl --mkl-libdir=/opt/intel/mkl/lib/intel64 --mathlib=MKL --use-cuda=yes --cudatk-dir=/usr/local/cuda
 ./configure  --shared
 
 make depend
