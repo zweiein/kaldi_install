@@ -6,14 +6,15 @@
 
 # ------------------steps:------------------
 
-# download  any kind of kaldi source code on github
+#cd <path-you-want>
+# download any kind of kaldi source code on github
 git clone https://github.com/kaldi-asr/kaldi.git kaldi-trunk --origin golden
 
 cd kaldi-trunk
 
-#Link to installed tools
-rm -rf tools
 
+rm -rf tools
+#Link to the installed tools
 ln -s /usr/local/kaldi-trunk/tools
 
 
