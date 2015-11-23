@@ -37,8 +37,11 @@ cd ~
 cd kaldi/src
 
 #The "configure" script, located in src/, should be run by typing ./configure. This script takes various options. For instance, you can run
-#154 : ./configure --shared --mkl-root=/opt/intel/mkl --mkl-libdir=/opt/intel/mkl/lib/intel64 --mathlib=MKL --use-cuda=yes --cudatk-dir=/usr/local/cuda
+#154 new: ./configure --shared --mkl-root=/opt/intel/mkl --mkl-libdir=/opt/intel/mkl/lib/intel64 --mathlib=MKL --use-cuda=yes --cudatk-dir=/usr/local/cuda --clapack-root=/usr/local/kaldi-trunk/tools/CLAPACK --atlas-root=/usr/local/kaldi-trunk/tools/ATLAS --fst-root=/usr/local/kaldi-trunk/tools/openfst
 ./configure  --shared
+
+#after you set the ./configure, you should edit src/kaldi.mk,
+#add a new line with `OPENFST_VER=1.3.4`
 
 make depend
 
