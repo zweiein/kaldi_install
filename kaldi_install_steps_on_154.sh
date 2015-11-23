@@ -1,0 +1,34 @@
+#date:2015/11/23
+#writer:Yang Ming-Han
+
+# Install Kaldi on 154
+# Required tools : if you have installed Kaldi already
+
+# ------------------steps:------------------
+
+# download  any kind of kaldi source code on github
+git clone https://github.com/kaldi-asr/kaldi.git kaldi-trunk --origin golden
+
+cd kaldi-trunk
+
+#Link to installed tools
+rm -rf tools
+
+ln -s /usr/local/kaldi-trunk/tools
+
+
+cd kaldi/src
+
+#The "configure" script, located in src/, should be run by typing ./configure. This script takes various options. For instance, you can run
+./configure --shared --mkl-root=/opt/intel/mkl --mkl-libdir=/opt/intel/mkl/lib/intel64 --mathlib=MKL --use-cuda=yes --cudatk-dir=/usr/local/cuda 
+
+
+#after you set the ./configure, you should edit src/kaldi.mk,
+#add a new line with `OPENFST_VER=1.3.4`
+
+make depend
+
+make -j 8
+
+# check whether kaldi install
+make test   
