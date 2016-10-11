@@ -52,3 +52,5 @@ make depend
 
 make -j 8
  
+#-----------------------------
+make test
