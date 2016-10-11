@@ -32,18 +32,14 @@ cd kaldi-trunk/tools
 #
 #  `make -j 4`
 #############################################
-cd kaldi-trunk/tools/extras
+cd kaldi-trunk/tools
 ./extras/check_dependencies.sh
 make 
 make -j 4
 
-
-# if it's not installed
-./install_irstlm.sh  
-# install srilm, sph2pipe, atlas
-#./install_srilm.sh, 
-cd ..
-
+# if it's not installed 
+./extras/install_irstlm.sh               #(ls /usr/local/irstlm/ --> "bin  include  lib")
+#./install_srilm.sh, ./install_atlas.sh, ./install_sph2pipe
 
 
 #-------------------------------------step(2)----------------------------------------
