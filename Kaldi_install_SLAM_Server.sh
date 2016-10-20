@@ -20,7 +20,7 @@ sudo make -j 4
 
 
 #-------------------------------------step(3)編譯Kaldi主程式----------------------------------------
-cd kaldi/src
+cd ../kaldi/src
 
 # --cudatk-dir放的是cuda的位置
 ./configure --shared  --use-cuda=yes --cudatk-dir=/usr/local/cuda 
