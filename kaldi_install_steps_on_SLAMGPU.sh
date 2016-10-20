@@ -1,7 +1,7 @@
 #date:2016/10/07
 #writer:Ming-Han Yang
 
-#cd <path-you-want>
+#cd 到想要安裝的資料夾(例如:cd /usr/local)
 git clone https://github.com/kaldi-asr/kaldi.git kaldi-trunk --origin golden
 
 #############################################
