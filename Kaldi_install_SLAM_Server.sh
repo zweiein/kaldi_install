@@ -4,7 +4,7 @@ git clone https://github.com/kaldi-asr/kaldi.git kaldi-trunk --origin golden
 #-------------------------------------step(1)檢查及安裝Kaldi主程式所需的外部函式庫 (必要)----------------------------------------
 cd kaldi-trunk/tools
 
-# 檢查哪些所需套件尚未安裝，如果有的話會出現訊息提醒你(有些如果安裝失敗表示需要加sudo)
+# 檢查哪些所需套件尚未安裝，如果有的話會出現訊息提醒你安裝(有些如果安裝失敗表示需要加sudo)
 ./extras/check_dependencies.sh
 sudo make 
 sudo make -j 4
