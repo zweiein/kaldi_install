@@ -1,52 +1,34 @@
 #cd 到想要安裝的資料夾(例如:cd /usr/local)
 git clone https://github.com/kaldi-asr/kaldi.git kaldi-trunk --origin golden
 
-#############################################
-# cat kaldi-trunk/INSTALL 
-#This is the official Kaldi INSTALL. Look also at INSTALL.md for the git mirror installation.
-#[for native Windows install, see windows/INSTALL]
-#(1)go to tools/  and follow INSTALL instructions there.
-#(2) go to src/ and follow INSTALL instructions there.
-#############################################
+#-------------------------------------step(1)檢查及安裝Kaldi主程式所需的外部函式庫 (必要)----------------------------------------
+cd kaldi-trunk/tools
 
-#-------------------------------------step(1)----------------------------------------
-cd kaldi-trunk/tools
-#############################################
-# cat kaldi-trunk/tools/INSTALL 
-#To install the most important prerequisites for Kaldi:
-# first do
-#  `extras/check_dependencies.sh`
-#
-#to see if there are any system-level installations or modifications you need to do.
-#Check the output carefully: there are some things that will make your life a lot
-#easier if you fix them at this stage.
-#Then run
-#  `make`
-#
-#If you have multiple CPUs and want to speed things up, you can do a parallel
-#build by supplying the "-j" option to make, e.g. to use 4 CPUs:
-#
-#  `make -j 4`
-#############################################
-cd kaldi-trunk/tools
+# 檢查哪些所需套件尚未安裝，如果有的話會出現訊息提醒你(有些如果安裝失敗表示需要加sudo)
 ./extras/check_dependencies.sh
-make 
-make -j 4
+sudo make 
+sudo make -j 4
 
-# if it's not installed 
-./extras/install_irstlm.sh               #(ls /usr/local/irstlm/ --> "bin  include  lib")
-#./install_srilm.sh, ./install_atlas.sh, ./install_sph2pipe
+#-------------------------------------step(2)檢查及安裝Kaldi使用時所需的外部函式庫 (非必要)----------------------------------------
+# 安裝其它外部程式，理論上應該執行完就安裝好了
+./extras/install_irstlm.sh
+./extras/install_beamformit.sh
+./extras/install_sph2pipe
+
+# 這個安裝起來比較麻煩，要自己到官方網站下載
+./extras/install_srilm.sh
 
 
-#-------------------------------------step(2)----------------------------------------
+#-------------------------------------step(3)編譯Kaldi主程式----------------------------------------
 cd kaldi/src
 
-#The "configure" script, located in src/, should be run by typing ./configure. This script takes various options. For instance, you can run
+# --cudatk-dir放的是cuda的位置
 ./configure --shared  --use-cuda=yes --cudatk-dir=/usr/local/cuda 
 
-make depend
+sudo make depend
 
-make -j 8
- 
-#-----------------------------
+sudo make -j 4
+
+
+#-------------------------------------step(4)檢查安裝是否完成----------------------------------------
 make test
