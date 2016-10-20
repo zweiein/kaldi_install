@@ -2,7 +2,6 @@
 #writer:Ming-Han Yang
 
 #cd <path-you-want>
-# download any kind of kaldi source code on github
 git clone https://github.com/kaldi-asr/kaldi.git kaldi-trunk --origin golden
 
 #############################################
