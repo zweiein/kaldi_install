@@ -1,9 +1,10 @@
 #cd 到想要安裝的資料夾(例如:cd /usr/local)
 git clone https://github.com/kaldi-asr/kaldi.git kaldi --origin upstream
+cd kaldi
 
 
 #-------------------------------------step(1)檢查及安裝Kaldi主程式所需的外部函式庫 (必要)----------------------------------------
-cd kaldi-trunk/tools
+cd tools
 
 # 檢查哪些所需套件尚未安裝，如果有的話會出現訊息提醒你安裝(有些如果安裝失敗表示需要加sudo)
 ./extras/check_dependencies.sh
@@ -21,7 +22,7 @@ sudo make -j 4
 
 
 #-------------------------------------step(3)編譯Kaldi主程式----------------------------------------
-cd ../kaldi/src
+cd ../src
 
 # --cudatk-dir放的是cuda的位置
 ./configure --shared  --use-cuda=yes --cudatk-dir=/usr/local/cuda 
