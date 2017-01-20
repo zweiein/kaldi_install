@@ -24,7 +24,7 @@ sudo make -j 4
 cd ../src
 
 # --cudatk-dir放的是cuda的位置
-./configure --shared  --use-cuda=yes --cudatk-dir=/usr/local/cuda 
+sudo ./configure --shared  --use-cuda=yes --cudatk-dir=/usr/local/cuda 
 
 sudo make depend
 
