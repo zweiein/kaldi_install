@@ -23,7 +23,7 @@ sudo make -j 4
 #-------------------------------------step(3)編譯Kaldi主程式----------------------------------------
 cd ../src
 
-# --cudatk-dir放的是cuda的位置
+# 有時候可能會因為權限問題而找不到openfst, 因此加上sudo較保險
 sudo ./configure --shared  --use-cuda=yes --cudatk-dir=/usr/local/cuda 
 
 sudo make depend
