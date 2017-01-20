@@ -1,5 +1,6 @@
 #cd 到想要安裝的資料夾(例如:cd /usr/local)
-git clone https://github.com/kaldi-asr/kaldi.git kaldi-trunk --origin golden
+git clone https://github.com/kaldi-asr/kaldi.git kaldi --origin upstream
+
 
 #-------------------------------------step(1)檢查及安裝Kaldi主程式所需的外部函式庫 (必要)----------------------------------------
 cd kaldi-trunk/tools
