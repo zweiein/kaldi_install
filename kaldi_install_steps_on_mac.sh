@@ -7,7 +7,7 @@
 # ------------------steps:------------------
 
 # download kaldi source code
-svn co https://svn.code.sf.net/p/kaldi/code/trunk kaldi-trunk
+git clone https://github.com/kaldi-asr/kaldi.git kaldi --origin upstream
 
 #To install the prerequisites for Kaldi, type
 cd kaldi/tools
